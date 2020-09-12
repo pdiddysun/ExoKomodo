@@ -68,6 +68,12 @@ namespace ExoKomodo.Pages.Users.Jorson.Games.Kaiju
                 CurrentPlanet = _planet,
             };
             _monsters.Add(Player);
+            _monsters.Add(
+                new Squog(Application)
+                {
+                    CurrentPlanet = _planet,
+                }
+            );
         }
 
         public override void Update()
@@ -110,7 +116,10 @@ namespace ExoKomodo.Pages.Users.Jorson.Games.Kaiju
         {
             foreach (var monster in _monsters)
             {
-                monster.Draw(baseRotation: -GetPlayerRotation(), isFocused: ReferenceEquals(monster, Player));
+                monster.Draw(
+                    baseRotation: -GetPlayerRotation(),
+                    isFocused: ReferenceEquals(monster, Player)
+                );
             }
         }
 

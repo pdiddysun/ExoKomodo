@@ -24,7 +24,7 @@ namespace ExoKomodo.Pages.Users.Jorson.Games.Kaiju.Planets
             Application.Push();
 
             Application.Translate(Position);
-            Application.Rotate(baseRotation + Rotation);
+            Application.Rotate(baseRotation);
 
             Application.NoStroke();
             Application.Fill(GroundColor);

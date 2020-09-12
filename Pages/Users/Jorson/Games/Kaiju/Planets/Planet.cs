@@ -44,23 +44,23 @@ namespace ExoKomodo.Pages.Users.Jorson.Games.Kaiju.Planets
         #region Member Methods
         public abstract void Draw(float baseRotation = 0f);
 
-        public Vector2 EdgePointToPosition(float edgePoint, float radiusOffset = 0f)
+        public Vector2 EdgePointToPosition(float edgePoint, float radiusOffset = 0f, float baseRotation = 0f)
         {
             var position = Vector2.Transform(
-                position: Vector2.UnitY,
+                position: -Vector2.UnitY,
                 matrix: Matrix3x2.CreateRotation(
-                    radians: EdgePointToRotationAngle(edgePoint),
+                    radians: baseRotation + EdgePointToRotationAngle(edgePoint),
                     centerPoint: Vector2.Zero
                 )
             );
-            return position * (Radius + radiusOffset) + Position;
+            return position * (Radius + radiusOffset);
         }
 
         public float EdgePointToRotationAngle(float edgePoint)
         {
             var circumference = Circumference;
             float circumferenceRatio = circumference == 0f ? 0 : edgePoint / circumference;
-            return circumferenceRatio * 2f * MathF.PI + Rotation;
+            return circumferenceRatio * 2f * MathF.PI;
         }
 
         public void Update()

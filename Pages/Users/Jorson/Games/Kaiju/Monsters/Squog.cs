@@ -36,19 +36,28 @@ namespace ExoKomodo.Pages.Users.Jorson.Games.Kaiju.Monsters
             Application.Fill(Color.DarkSlateGray);
 
             var halfHeight = _body.Height * 0.5f;
-            Vector2 translation;
+            Vector2 translation = CurrentPlanet.Position;
+            float rotation = baseRotation + CurrentPlanet.EdgePointToRotationAngle(EdgePoint);
             if (!isFocused)
             {
-                translation = CurrentPlanet.EdgePointToPosition(EdgePoint, radiusOffset: halfHeight);
+                translation += CurrentPlanet.EdgePointToPosition(
+                    EdgePoint,
+                    radiusOffset: halfHeight,
+                    baseRotation: baseRotation
+                );
             }
             else
             {
-                translation = CurrentPlanet.Position + (-Vector2.UnitY * (CurrentPlanet.Radius + halfHeight));
+                translation += (
+                    -Vector2.UnitY
+                    * (
+                        CurrentPlanet.Radius
+                        + halfHeight
+                    )
+                );
             }
             Application.Translate(translation);
-            
-            var rotation = CurrentPlanet.EdgePointToRotationAngle(EdgePoint);
-            Application.Rotate(baseRotation + rotation);
+            Application.Rotate(rotation);
 
             Application.SetRectangleMode(RectangleMode.Center);
             Application.DrawRectangle(_body);

@@ -53,7 +53,7 @@ namespace ExoKomodo.Pages.Users.Jorson.Games.Kaiju
                 }
             }
 
-            return false; // Event prevent default
+            return true; // Event prevent default
         }
 
         [JSInvokable("keyReleased")]
@@ -67,7 +67,7 @@ namespace ExoKomodo.Pages.Users.Jorson.Games.Kaiju
                 }
             }
 
-            return false; // Event prevent default
+            return true; // Event prevent default
         }
 
         [JSInvokable("mouseClicked")]

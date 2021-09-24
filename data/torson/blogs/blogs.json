@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2021-08-15",
+    "title": "Pilot",
+    "content": {
+      "path": "blogs/2021-08-15.html"
+    }
+  },
+  {
+    "date": "2021-08-30",
+    "title": "Wings",
+    "content": {
+      "path": "blogs/2021-08-30.html"
+    }
+  }
+]
